@@ -8,11 +8,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import sec.project.domain.Signup;
 import sec.project.repository.SignupRepository;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class SignupController {
 
     @Autowired
     private SignupRepository signupRepository;
+
+    @Autowired
+    private HttpSession httpSession;
 
     @RequestMapping("*")
     public String defaultMapping() {
@@ -26,6 +31,8 @@ public class SignupController {
 
     @RequestMapping(value = "/form", method = RequestMethod.POST)
     public String submitForm(@RequestParam String name, @RequestParam String address) {
+        httpSession.setAttribute("name", name);
+        httpSession.setAttribute("address", address);
         signupRepository.save(new Signup(name, address));
         return "done";
     }
