@@ -5,31 +5,31 @@
 </head>
 <body>
 <div>
-<h1>Signups</h1>
-<p>List of people who have signed up.</p>
+    <h1>Signups</h1>
+    <p>List of people who have signed up.</p>
 
-<ul>
-    <li th:each="member : ${signups}">
-        <span th:utext="${member.getName()}"></span><br />
-        <span th:if="${admin}" th:utext="${member.getAddress()}"></span>
-    </li>
-</ul>
+    <ul>
+        <li th:each="member : ${signups}">
+            <span th:utext="${member.getName()}"></span><br/>
+            <span th:if="${admin}" th:utext="${member.getAddress()}"></span>
+        </li>
+    </ul>
 
 </div>
 
 <div>
-<p>Your information:</p>
-<p>Name: <span th:text="${name}">name</span></p>
-<p>Address: <span th:text="${address}">address</span></p>
+    <p>Your information:</p>
+    <p>Name: <span th:text="${name}">name</span></p>
+    <p>Address: <span th:text="${address}">address</span></p>
 </div>
 
-<div><
-<p>Admin login</p>
-<form action="#" th:action="@{/signups/login}" method="GET">
-    <p><label for="user">Username</label>: <input type="text" name="user" id="user"/></p>
-    <p><label for="pass">Password</label>: <input type="text" name="pass" id="pass"/></p>
-    <p><input type="submit" value="Submit" /></p>
-</form>
+<div>
+    <p>Admin login</p>
+    <form action="#" th:action="@{/signups/login}" method="GET">
+        <p><label for="user">Username</label>: <input type="text" name="user" id="user"/></p>
+        <p><label for="pass">Password</label>: <input type="text" name="pass" id="pass"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
 </div>
 </body>
 </html>
